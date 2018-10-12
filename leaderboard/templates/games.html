@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title> GAMES STATS </title>
+    <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+  <!-- Navbar content -->
+
+  <!-- Navbar content -->
+  <p align = "center"><font color="white"><h1>GAMES STATS</h1></font></p>
+</nav>
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Game</th>
+      <th scope="col">Team Name</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead><tbody>
+
+{% for game in games %}
+
+<tr>
+	<th scope="row" rowspan="2">Game {{game.id}}</th>
+	<td>{{game.team1}}</td>
+	<td>{{game.team1_score}}</td>
+</tr>
+<tr>
+	<td>{{game.team2}}</td>
+	<td>{{game.team2_score}}</td>
+</tr>
+
+{% endfor %}
+
+</body>
+</html>

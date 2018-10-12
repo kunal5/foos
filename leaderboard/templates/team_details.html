@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title> TEAM DETAILS </title>
+    <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+  <!-- Navbar content -->
+
+  <!-- Navbar content -->
+  <p align = "center"><font color="white"><h1>TEAM {{team.Team_Name}}</h1></font></p>
+</nav>
+<br>
+<br>
+<h3>Players Detail</h3>
+<ul>
+	<li>{{team.Player1_Name}}</li>
+	<li>{{team.Player2_Name}}</li>
+</ul>
+
+<h3>Games Played</h3>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Game</th>
+      <th scope="col">Team Name</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead><tbody>
+
+{% for ga in game %}
+{% ifequal team.Team_Name ga.team1.Team_Name %}
+<tr>
+	<th scope="row" rowspan="2">Game {{ga.id}}</th>
+	<td>{{ga.team1.Team_Name}}</td>
+	<td>{{ga.team1_score}}</td>
+</tr>
+<tr>
+  <td>{{ga.team2.Team_Name}}</td>
+  <td>{{ga.team2_score}}</td>
+</tr>
+{% endifequal %}
+{% ifequal team.Team_Name ga.team2.Team_Name %}
+  <tr>
+  	<th scope="row" rowspan="2">Game {{ga.id}}</th>
+  	<td>{{ga.team1.Team_Name}}</td>
+  	<td>{{ga.team1_score}}</td>
+  </tr>
+  <tr>
+    <td>{{ga.team2.Team_Name}}</td>
+    <td>{{ga.team2_score}}</td>
+  </tr>
+  	{% endifequal %}
+{% endfor %}
+</body></html>
