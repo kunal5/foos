@@ -33,7 +33,8 @@ def team_list(request):
 
 def team_details(request, team_id):
 	team = RegisterTeam.objects.get(pk=team_id)
-	game = RegisterGame.objects.all()
+	game = RegisterGame.objects.filter(team1=team).team1_score
+	#game = RegisterGame.objects.all()
 	return render(request, 'team_details.html', {'team': team, 'game':game})
 
 def games(request):
